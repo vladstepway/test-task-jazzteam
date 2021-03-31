@@ -1,25 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import React from "react";
+import HeaderContainer from "./components/HeaderContainer";
+import {Redirect, Route, Switch} from "react-router-dom";
+import Home from "./components/Home";
+import LoginForm from "./components/LoginForm";
+import ProfileContainer from "./components/ProfileContainer";
+import Info from "./components/Info";
+import {useSelector} from "react-redux";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    console.log('App1')
+    const isAuth = useSelector(state => state.auth.isAuthenticated);
+    console.log('App2')
+    return (
+        <div className="App">
+            <HeaderContainer/>
+            <Switch>
+                <Route exact path="/" component={Home}/>
+                <Route path="/login" render={() => <LoginForm/>}/>
+                <Route path="/profile">
+                    {/*<ProfileContainer/>*/}
+                    {isAuth ? <ProfileContainer/> : <Redirect to="/login"/>}
+                </Route>
+                <Route path="/info" component={Info}/>
+                <Redirect to="/"/>
+            </Switch>
+        </div>
+    );
 }
 
 export default App;
