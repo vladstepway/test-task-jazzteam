@@ -1,0 +1,53 @@
+.table-wrapper {
+    overflow-y: auto;
+    overflow-x: scroll;
+    height: 300px;
+    width: 500px;
+    margin: auto;
+}
+
+.table-wrapper thead th {
+    position: sticky;
+    top: 0;
+}
+
+.table-wrapper tbody th {
+    position: sticky;
+    left: 0;
+
+}
+
+thead th:first-child {
+    left: 0;
+    z-index: 2;
+}
+
+.table-wrapper,
+.table-wrapper td {
+    box-shadow: inset 1px -1px #000;
+}
+
+.table-wrapper th {
+    box-shadow: inset 1px 1px #000, 0 1px #000;
+}
+
+table, td, th {
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 8px 16px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    background: #eee;
+}
+
+tr.highlight {
+    background-color: #61dafb;
+}

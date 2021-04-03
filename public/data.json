@@ -1,0 +1,217 @@
+{
+  "people": [
+    {
+      "id": "c4ca4238a0b923820dcc509a6f75849b",
+      "money": 100,
+      "currency": "USD",
+      "personalInfo": {
+        "name": "Vladislav",
+        "lastName": "Stepovoy",
+        "age": 20,
+        "gender": "M",
+        "maritalStatus": "single",
+        "haveChildren": false
+      }
+    },
+    {
+      "id": "c81e728d9d4c2f636f067f89cc14862c",
+      "money": 100,
+      "currency": "USD",
+      "personalInfo": {
+        "name": "Andrew",
+        "lastName": "Stepovoy",
+        "age": 20,
+        "gender": "M",
+        "maritalStatus": "single",
+        "haveChildren": false
+      }
+    },
+    {
+      "id": "eccbc87e4b5ce2fe28308fd9f2a7baf3",
+      "money": 100,
+      "currency": "USD",
+      "personalInfo": {
+        "name": "Kirill",
+        "lastName": "Stepovoy",
+        "age": 20,
+        "gender": "M",
+        "maritalStatus": "single",
+        "haveChildren": false
+      }
+    },
+    {
+      "id": "a87ff679a2f3e71d9181a67b7542122c",
+      "money": 100,
+      "currency": "USD",
+      "personalInfo": {
+        "name": "Egor",
+        "lastName": "Stepovoy",
+        "age": 20,
+        "gender": "M",
+        "maritalStatus": "single",
+        "haveChildren": false
+      }
+    },
+    {
+      "id": "e4da3b7fbbce2345d7772b0674a318d5",
+      "money": 100,
+      "currency": "USD",
+      "personalInfo": {
+        "name": "Vitalik",
+        "lastName": "Stepovoy",
+        "age": 20,
+        "gender": "M",
+        "maritalStatus": "single",
+        "haveChildren": false
+      }
+    },
+    {
+      "id": "1679091c5a880faf6fb5e6087eb1b2dc",
+      "money": 100,
+      "currency": "USD",
+      "personalInfo": {
+        "name": "Slava",
+        "lastName": "Stepovoy",
+        "age": 20,
+        "gender": "M",
+        "maritalStatus": "single",
+        "haveChildren": false
+      }
+    },
+    {
+      "id": "8f14e45fceea167a5a36dedd4bea2543",
+      "money": 100,
+      "currency": "USD",
+      "personalInfo": {
+        "name": "Sasha",
+        "lastName": "Stepovoy",
+        "age": 20,
+        "gender": "M",
+        "maritalStatus": "single",
+        "haveChildren": false
+      }
+    },
+    {
+      "id": "c9f0f895fb98ab9159f51fd0297e236d",
+      "money": 100,
+      "currency": "USD",
+      "personalInfo": {
+        "name": "Nastya",
+        "lastName": "Stepovoy",
+        "age": 20,
+        "gender": "M",
+        "maritalStatus": "single",
+        "haveChildren": false
+      }
+    },
+    {
+      "id": "45c48cce2e2d7fbdea1afc51c7c6ad26",
+      "money": 100,
+      "currency": "USD",
+      "personalInfo": {
+        "name": "Lena",
+        "lastName": "Stepovoy",
+        "age": 20,
+        "gender": "M",
+        "maritalStatus": "single",
+        "haveChildren": false
+      }
+    },
+    {
+      "id": "d3d9446802a44259755d38e6d163e820",
+      "money": 100,
+      "currency": "USD",
+      "personalInfo": {
+        "name": "Tanya",
+        "lastName": "Stepovoy",
+        "age": 20,
+        "gender": "M",
+        "maritalStatus": "single",
+        "haveChildren": false
+      }
+    },
+    {
+      "id": "6512bd43d9caa6e02c990b0a82652dca",
+      "money": 100,
+      "currency": "USD",
+      "personalInfo": {
+        "name": "Vladislav",
+        "lastName": "Stepovoy",
+        "age": 20,
+        "gender": "M",
+        "maritalStatus": "single",
+        "haveChildren": false
+      }
+    },
+    {
+      "id": "c20ad4d76fe97759aa27a0c99bff6710",
+      "money": 100,
+      "currency": "USD",
+      "personalInfo": {
+        "name": "Vladislav",
+        "lastName": "Stepovoy",
+        "age": 20,
+        "gender": "M",
+        "maritalStatus": "single",
+        "haveChildren": false
+      }
+    },
+    {
+      "id": "c51ce410c124a10e0db5e4b97fc2af39",
+      "money": 100,
+      "currency": "USD",
+      "personalInfo": {
+        "name": "Vladislav",
+        "lastName": "Stepovoy",
+        "age": 20,
+        "gender": "M",
+        "maritalStatus": "single",
+        "haveChildren": false
+      }
+    },
+    {
+      "id": "aab3238922bcc25a6f606eb525ffdc56",
+      "money": 100,
+      "currency": "USD",
+      "personalInfo": {
+        "name": "Vladislav",
+        "lastName": "Stepovoy",
+        "age": 20,
+        "gender": "M",
+        "maritalStatus": "single",
+        "haveChildren": false
+      }
+    },
+    {
+      "id": "9bf31c7ff062936a96d3c8bd1f8f2ff3",
+      "money": 100,
+      "currency": "USD",
+      "personalInfo": {
+        "name": "Vladislav",
+        "lastName": "Stepovoy",
+        "age": 20,
+        "gender": "M",
+        "maritalStatus": "single",
+        "haveChildren": false
+      }
+    }
+  ],
+  "headers": [
+    "ID",
+    "Name",
+    "Lastname",
+    "Age",
+    "Gender",
+    "Money",
+    "Status",
+    "Currency",
+    "Children",
+    "Transport",
+    "Education",
+    "Job",
+    "Pets",
+    "Realty",
+    "Followers",
+    "Likes"
+  ]
+}

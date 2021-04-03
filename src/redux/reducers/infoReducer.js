@@ -1,9 +1,16 @@
-import {createSlice} from "@reduxjs/toolkit";
+import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+import {getInfoData} from "../../api/axios";
 
 const initialState = {
-    isAuthenticated: false,
-    login: null
+    people: null,
+    headers: null,
+    isLoading: true,
+    sortOrder: 'asc',
+    sortField: 'id',
+    selectedRows: []
 }
+
+export const getInfo = createAsyncThunk('info/getInfo', getInfoData)
 
 const infoSlice = createSlice({
     name: 'info',
@@ -11,19 +18,32 @@ const infoSlice = createSlice({
     reducers: {
         setInfo: (state, action) => ({
             ...state,
-            info: action.payload
+            people: action.payload.people,
+            sortOrder: action.payload.sortOrder,
+            sortField: action.payload.sortField
+        }),
+        setIsLoading: ((state, action) => ({
+            ...state,
+            isLoading: action.payload
+        })),
+        setSelectedRows: (state, action) => ({
+            ...state,
+            selectedRows: [...action.payload]
         })
-        // setAuthUser: (state, action) => ({
-        //     ...state,
-        //     login: action.payload,
-        //     isAuthenticated: true
-        // }),
-        // setLogout: (state) => ({
-        //     ...state,
-        //     isAuthenticated: false,
-        //     login: null
-        // })
+
+    },
+    extraReducers: (builder) => {
+        builder
+            .addCase(getInfo.pending, (state, action) => {
+                state.isLoading = true;
+            })
+            .addCase(getInfo.fulfilled, (state, action) => {
+                state.people = [...action.payload.people];//TODO NEEDS TO BE SORTED
+                // state.people = [...action.payload.people];
+                state.headers = [...action.payload.headers];
+                state.isLoading = false;
+            })
     }
 })
-export const {setInfo} = infoSlice.actions;
+export const {setInfo, setIsLoading, setSelectedRows} = infoSlice.actions;
 export default infoSlice.reducer;

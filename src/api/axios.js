@@ -9,3 +9,12 @@ export const getCredentials = async ({url, data}, {rejectWithValue}) => {
         return rejectWithValue({errorMessage: err.message});
     }
 };
+
+export const getInfoData = async ({url}) => {
+    try {
+        const response = await axios.get(url);
+        return response.data;
+    } catch (err) {
+        console.error(err)
+    }
+}

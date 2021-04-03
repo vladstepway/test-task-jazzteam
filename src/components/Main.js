@@ -2,7 +2,7 @@ import {Redirect, Route, Switch} from "react-router-dom";
 import Home from "./Home";
 import LoginForm from "./LoginForm";
 import ProfileContainer from "./ProfileContainer";
-import Info from "./Info";
+import InfoContainer from "./InfoContainer";
 import React from "react";
 import {useSelector} from "react-redux";
 
@@ -15,7 +15,10 @@ export default function Main() {
             <Route path="/profile">
                 {isAuth ? <ProfileContainer/> : <Redirect to="/login"/>}
             </Route>
-            <Route path="/info" component={Info}/>
+            <Route path="/info">
+                {/*{isAuth ? <InfoContainer/> : <Redirect to="/login"/>}*/}
+                <InfoContainer/>
+            </Route>
             <Redirect to="/"/>
         </Switch>
     )
