@@ -1,7 +1,8 @@
 # Test task for JazzTeam
 
-Project demo here: [Demo](https://github.com/facebook/create-react-app)
+Project demo here: [Demo](https://vladstepway-jazzteam-test-task.netlify.app/)
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8486695d-025e-4ab8-a012-681a2cfa22b8/deploy-status)](https://app.netlify.com/sites/vladstepway-jazzteam-test-task/deploys)
 ## How to start
 
 In the project directory, you can run:
@@ -12,9 +13,7 @@ Then, to start the project use:
 
 ### `npm start`
 
-## Learn More
-
-### Routes:
+## Routes:
 
 ### `/login`
 
@@ -42,3 +41,4 @@ Table of data from `public/data.json`
 * Form: `react-form-hook`
 * Fetching: `axios`
 * Styles: `css3`
+
