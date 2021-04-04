@@ -1,0 +1,36 @@
+.profile {
+    border: blueviolet 3px solid;
+    margin: 0 auto;
+    width: 400px;
+}
+
+.user {
+    display: flex;
+}
+
+.user-photo {
+    border: 2px darkgray solid;
+    border-radius: 50%;
+}
+
+.user-info {
+    margin: 5%;
+    font-size: 25px;
+}
+
+.user-name {
+    font-weight: bold;
+}
+
+.user-age {
+    color: darkgray;
+}
+
+.user-money {
+    font-weight: bold;
+}
+
+.user-money span {
+    color: #049316;
+    font-weight: bold;
+}

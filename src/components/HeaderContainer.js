@@ -10,20 +10,19 @@ export default function HeaderContainer() {
     const dispatch = useDispatch();
 
     const onLogoutButtonClick = () => {
-        console.log('on logout')
         dispatch(setLogout())
     }
-    console.log('HeaderContainer')
+
     return (
         <div className="App-header">
-            <Authentication isAuth={isAuth} name={login} onLogout={onLogoutButtonClick}/>
-            <nav>
-                <ul>
-                    <NavLink to={'/'}>Home</NavLink>
-                    <NavLink to={'/profile'}>Profile</NavLink>
-                    <NavLink to={'/info'}>Info</NavLink>
+            <nav className={'navigation'}>
+                <ul className={'navigation-list'}>
+                    <NavLink className={'navigation-item'} to={'/'}>Home</NavLink>
+                    <NavLink className={'navigation-item'} to={'/profile'}>Profile</NavLink>
+                    <NavLink className={'navigation-item'} to={'/info'}>Info</NavLink>
                 </ul>
             </nav>
+            <Authentication isAuth={isAuth} name={login} onLogout={onLogoutButtonClick}/>
         </div>
     );
 }

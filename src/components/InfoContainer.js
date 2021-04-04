@@ -18,11 +18,8 @@ export default function InfoContainer() {
     const {
         info: {
             people, headers, isLoading, sortOrder, selectedRows, isEditMode
-        },
-        auth: {login}
+        }
     } = useSelector(state => state);
-
-    console.log(login)
 
     const onSortHandler = useCallback((sortField) => {
         if (isEditMode) {

@@ -1,6 +1,6 @@
 export const validateUserCredentials = (response, userInput) => {
-    if (userInput.login !== response.username && userInput.password !== response.password) {
-        throw Error('Incorrect login or password. Try again!')
+    if (userInput.login === response.username && userInput.password === response.password) {
+        return userInput;
     }
-    return userInput;
+    throw Error('Incorrect login or password. Try again!')
 }

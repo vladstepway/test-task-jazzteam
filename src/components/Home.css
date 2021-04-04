@@ -1,0 +1,14 @@
+.home {
+    margin: 5% 20%;
+    text-align: left;
+}
+.status{
+    margin: 10px;
+}
+h1, h2 {
+    text-align: center;
+}
+
+.list {
+    text-align: left;
+}

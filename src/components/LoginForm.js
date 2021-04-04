@@ -4,6 +4,8 @@ import {useDispatch, useSelector} from "react-redux";
 import {checkUserAuth, setErrors} from "../redux/reducers/authReducer";
 import {Redirect} from "react-router-dom";
 
+import './LoginForm.css'
+
 export default function LoginForm() {
 
     const {register, handleSubmit, errors} = useForm();
@@ -24,29 +26,33 @@ export default function LoginForm() {
         return <Redirect to="/profile"/>
     }
 
-    console.log('Err', errors)
-    console.log('Auth', authErrors)
     return (
-        <div className="login-form">
-            <form onSubmit={handleSubmit(onLoginSubmit)}>
+        <div className="login">
+            <form className={'login-form'} onSubmit={handleSubmit(onLoginSubmit)}>
                 <input name="login"
-                       ref={register({required: "Login is required", maxLength: 20})}
+                       ref={register({
+                           required: "Login is required",
+                           maxLength: {value: 20, message: "Login have to be <20 symbols"}
+                       })}
                        placeholder="Login"
                 />
-                {errors.login && errors.login.message}
+                <div className={'error-message'}>{errors.login && errors.login.message}</div>
                 <input
-                    // type={'password'}
+                    type={'password'}
                     name="password"
                     ref={register({
                         required: "Password is required",
                         minLength: {value: 8, message: "Password have to be >8 symbols"},
-                        maxLength: 20
+                        maxLength: {value: 20, message: "Password have to be <20 symbols"}
                     })}
                     placeholder="Password"
                 />
-                {errors.password && errors.password.message}
+                <div className={'error-message'}>{errors.password && errors.password.message}</div>
                 <button type="submit">Send</button>
-                {authErrors && (!errors.login && !errors.password) ? authErrors.errorMessage : null}
+                <div
+                    className={'error-message'}>
+                    {authErrors && (!errors.login && !errors.password) ? authErrors.errorMessage : null}
+                </div>
             </form>
         </div>
     );

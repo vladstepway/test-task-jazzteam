@@ -56,3 +56,11 @@ td[contenteditable=true]{
     background-color: blueviolet;
     border: red 3px solid;
 }
+
+span{
+    background-color: blueviolet;
+    color: #e4fffc;
+}
+span strong{
+color: cadetblue;
+}

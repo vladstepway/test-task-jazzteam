@@ -1,0 +1,19 @@
+.login {
+    margin: 0 auto;
+    width: 200px;
+    height: 150px;
+    border: blueviolet 2px solid;
+    padding: 40px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-around;
+}
+
+.error-message{
+    font-weight: bold;
+    color: #ff282c;
+}

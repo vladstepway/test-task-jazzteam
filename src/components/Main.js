@@ -7,7 +7,7 @@ import React from "react";
 import {useSelector} from "react-redux";
 
 export default function Main() {
-    const isAuth = useSelector(state => state.auth.isAuthenticated);
+    const {isAuthenticated: isAuth} = useSelector(state => state.auth);
     return (
         <Switch>
             <Route exact path="/" component={Home}/>
@@ -16,8 +16,7 @@ export default function Main() {
                 {isAuth ? <ProfileContainer/> : <Redirect to="/login"/>}
             </Route>
             <Route path="/info">
-                {/*{isAuth ? <InfoContainer/> : <Redirect to="/login"/>}*/}
-                <InfoContainer/>
+                {isAuth ? <InfoContainer/> : <Redirect to="/login"/>}
             </Route>
             <Redirect to="/"/>
         </Switch>

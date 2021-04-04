@@ -34,7 +34,7 @@ export default function Table({peopleList, headers, onSortClick, onRowSelect, se
                 </table>
 
             </div>
-            <span>Total items:{peopleList.length}, highlighted:{selectedRows.length}</span>
+            <span>Total items: <strong>{peopleList.length}</strong>, highlighted:<strong>{selectedRows.length}</strong></span>
         </>
     )
 }
