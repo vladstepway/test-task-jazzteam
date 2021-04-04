@@ -51,3 +51,8 @@ th {
 tr.highlight {
     background-color: #61dafb;
 }
+
+td[contenteditable=true]{
+    background-color: blueviolet;
+    border: red 3px solid;
+}

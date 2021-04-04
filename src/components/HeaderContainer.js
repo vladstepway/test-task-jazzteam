@@ -6,8 +6,7 @@ import {setLogout} from "../redux/reducers/authReducer";
 
 export default function HeaderContainer() {
 
-    const isAuth = useSelector(state => state.auth.isAuthenticated);
-    const login = useSelector(state => state.auth.login)
+    const {isAuthenticated: isAuth, login} = useSelector(state => state.auth);
     const dispatch = useDispatch();
 
     const onLogoutButtonClick = () => {

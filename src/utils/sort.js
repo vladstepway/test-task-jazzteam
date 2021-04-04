@@ -1,8 +1,14 @@
 export const sortBy = (data, sortField, order) => {
-    // console.log(data.sort(byField(sortField)))
-    return data;
+    return data.sort(byFieldAndOrder(sortField, order));
 }
 
-// function byField(fieldName) {
-//     return (a, b) => a[fieldName] > b[fieldName] ? 1 : -1;
-// }
+const byFieldAndOrder = (fieldName, order) => {
+    return (a, b) => {
+        if (order === 'asc') {
+            return a[fieldName] > b[fieldName] ? 1 : -1;
+        }
+        if (order === 'desc') {
+            return a[fieldName] > b[fieldName] ? -1 : 1
+        }
+    };
+}

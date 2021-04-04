@@ -1,8 +1,9 @@
-import React, {useEffect} from "react";
+import React, {useCallback, useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {getInfo, setInfo, setSelectedRows} from "../redux/reducers/infoReducer";
+import {getInfo, setEditMode, setInfo, setSelectedRows, updateCellContent} from "../redux/reducers/infoReducer";
 import Table from "./Table";
 import {sortBy} from "../utils/sort";
+import Spinner from "./Spinner";
 
 
 export default function InfoContainer() {
@@ -14,17 +15,30 @@ export default function InfoContainer() {
     }, [dispatch])
 
 
-    const {people, headers, isLoading, sortOrder, selectedRows} = useSelector(state => state.info)
+    const {
+        info: {
+            people, headers, isLoading, sortOrder, selectedRows, isEditMode
+        },
+        auth: {login}
+    } = useSelector(state => state);
 
-    const onSortHandler = (sortField) => {
-        const dataCopy = people;
+    console.log(login)
+
+    const onSortHandler = useCallback((sortField) => {
+        if (isEditMode) {
+            return;
+        }
+        const dataCopy = people.slice();
         const order = sortOrder === 'asc' ? 'desc' : 'asc';
-        const orderedData = sortBy(dataCopy, sortField, order);
-        debugger
-        dispatch(setInfo({people: orderedData, sortOrder, sortField}))
-    }
+        const sortedData = sortBy(dataCopy, sortField, order);
 
-    const onRowSelectHandler = (e, row) => {
+        dispatch(setInfo({people: sortedData, sortOrder: order, sortField}))
+    }, [sortOrder, people, dispatch, isEditMode])
+
+    const onRowSelectHandler = useCallback((e, row) => {
+        if (isEditMode) {
+            return;
+        }
         let selectedRowsCopy = [...selectedRows];
         if (e.currentTarget.classList.contains("highlight")) {
             selectedRowsCopy = selectedRowsCopy.filter((r) => r.id !== row.id)
@@ -33,16 +47,37 @@ export default function InfoContainer() {
         }
         e.currentTarget.classList.toggle("highlight")
         dispatch(setSelectedRows(selectedRowsCopy))
-    }
+    }, [isEditMode, selectedRows, dispatch])
+
+
+    const turnEditMode = useCallback((e, isEditMode, row) => {
+        if (!isEditMode) {
+            const key = e.target.dataset.attr;
+            const newValue = key === 'age' || key === 'money' ? +e.target.innerText : e.target.innerText
+            dispatch(updateCellContent({newValue, key, row}))
+        }
+        dispatch(setEditMode(isEditMode));
+        e.target.setAttribute('contenteditable', isEditMode);
+    }, [dispatch])
+
+    const onContentEdit = useCallback((e, content) => {
+        const el = e.target;
+        el.addEventListener('blur', turnEditMode.bind(null, e, false, content))
+        if (!el.getAttribute('contenteditable') || el.getAttribute('contenteditable') === 'false') {
+            turnEditMode.call(null, e, true, content)
+        }
+    }, [turnEditMode])
 
     return (
         <div className="Info">
-            {isLoading ? "LOADING" :
-                <Table onSortClick={onSortHandler}
-                       onRowSelect={onRowSelectHandler}
-                       peopleList={people}
-                       headers={headers}
-                       selectedRows={selectedRows}/>}
+            {
+                isLoading ? <Spinner/> : <Table onSortClick={onSortHandler}
+                                                onRowSelect={onRowSelectHandler}
+                                                peopleList={people}
+                                                headers={headers}
+                                                selectedRows={selectedRows}
+                                                onContentEdit={onContentEdit}/>
+            }
         </div>
     );
 }

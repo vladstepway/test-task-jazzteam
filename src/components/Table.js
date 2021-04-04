@@ -1,10 +1,7 @@
 import React from "react";
 import './Table.css'
 
-export default function Table({peopleList, headers, onSortClick, onRowSelect, selectedRows}) {
-
-    // const [selectedRowIndex, setSelectedRow] = useState(0);
-
+export default function Table({peopleList, headers, onSortClick, onRowSelect, selectedRows, onContentEdit}) {
 
     return (
         <>
@@ -22,15 +19,17 @@ export default function Table({peopleList, headers, onSortClick, onRowSelect, se
                         }
                     </tr>
                     </thead>
-                    <tbody>{peopleList.map((p, i) => <tr key={i + 1} onClick={(e) => onRowSelect(e, p)}>
+                    <tbody>{peopleList.map((p, i) => <tr key={i + 1}
+                                                         onDoubleClick={(e) => onContentEdit(e, p)}
+                                                         onClick={(e) => onRowSelect(e, p)}>
                         <th>{i + 1}</th>
-                        <td>{p.personalInfo.name}</td>
-                        <td>{p.personalInfo.lastName}</td>
-                        <td>{p.personalInfo.age}</td>
-                        <td>{p.personalInfo.gender}</td>
-                        <td>{p.money}</td>
-                        <td>{p.personalInfo.maritalStatus}</td>
-                        <td>{p.currency}</td>
+                        <td data-attr={'name'}>{p.name}</td>
+                        <td data-attr={'lastname'}>{p.lastname}</td>
+                        <td data-attr={'age'}>{p.age}</td>
+                        <td data-attr={'gender'}>{p.gender}</td>
+                        <td data-attr={'money'}>{p.money}</td>
+                        <td data-attr={'maritalStatus'}>{p.maritalStatus}</td>
+                        <td data-attr={'currency'}>{p.currency}</td>
                     </tr>)}</tbody>
                 </table>
 

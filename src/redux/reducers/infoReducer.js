@@ -7,7 +7,8 @@ const initialState = {
     isLoading: true,
     sortOrder: 'asc',
     sortField: 'id',
-    selectedRows: []
+    selectedRows: [],
+    isEditMode: false
 }
 
 export const getInfo = createAsyncThunk('info/getInfo', getInfoData)
@@ -29,7 +30,26 @@ const infoSlice = createSlice({
         setSelectedRows: (state, action) => ({
             ...state,
             selectedRows: [...action.payload]
-        })
+        }),
+        setEditMode: (state, action) => ({
+            ...state,
+            isEditMode: action.payload
+        }),
+        updateCellContent: (state, action) => {
+            const {row: {id}, key, newValue} = action.payload;
+            return {
+                ...state,
+                people: state.people.map((p, i) => {
+                    if (p.id === id) {
+                        return {
+                            ...p,
+                            [key]: newValue
+                        }
+                    }
+                    return p;
+                })
+            }
+        }
 
     },
     extraReducers: (builder) => {
@@ -45,5 +65,5 @@ const infoSlice = createSlice({
             })
     }
 })
-export const {setInfo, setIsLoading, setSelectedRows} = infoSlice.actions;
+export const {setInfo, setIsLoading, setSelectedRows, setEditMode, updateCellContent} = infoSlice.actions;
 export default infoSlice.reducer;
